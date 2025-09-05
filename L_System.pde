@@ -27,7 +27,7 @@ void setup() {
    15: Sierpinski-Teppich 
    */
 
-  pattern = 1;
+  pattern = 15;
 
   LS rules = new LS();
 

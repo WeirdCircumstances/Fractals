@@ -168,7 +168,7 @@ class LS {
       rules.set("setY", "300");
     }
     if (i == 13) {
-      // Sierpinski 
+      // Sierpinski
       rules.set("axiom", "FXF--FF--FF");
       rules.set("len", "300");
       rules.set("angle", "60");
