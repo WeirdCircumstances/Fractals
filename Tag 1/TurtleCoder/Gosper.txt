@@ -1,0 +1,68 @@
+function main() {
+	turtle->setSpeed(10000)
+	var step := 100
+	var iteration := 3
+	var step := myStepLengh(step,iteration)
+	turtle->penUp()
+	turtle->leftTurn(90)
+	turtle->back(myGoToStart(step,iteration))
+	turtle->penDown()
+	myGosperR(step,iteration)
+}
+function myGosperR(step,iteration) {
+	if(iteration > 0) {
+		myGosperR(step,iteration-1)
+		turtle->rightTurn(60)
+		myGosperL(step,iteration-1)
+		turtle->rightTurn(60)
+		turtle->rightTurn(60)
+		myGosperL(step,iteration-1)
+		turtle->leftTurn(60)
+		myGosperR(step,iteration-1)
+		turtle->leftTurn(60)
+		turtle->leftTurn(60)
+		myGosperR(step,iteration-1)
+		myGosperR(step,iteration-1)
+		turtle->leftTurn(60)
+		myGosperL(step,iteration-1)
+		turtle->rightTurn(60)
+	}else {
+		turtle->forward(step)
+	}
+
+}
+function myGosperL(step,iteration) {
+	if(iteration > 0) {
+		turtle->leftTurn(60)
+		myGosperR(step,iteration-1)
+		turtle->rightTurn(60)
+		myGosperL(step,iteration-1)
+		myGosperL(step,iteration-1)
+		turtle->rightTurn(60)
+		turtle->rightTurn(60)
+		myGosperL(step,iteration-1)
+		turtle->rightTurn(60)
+		myGosperR(step,iteration-1)
+		turtle->leftTurn(60)
+		turtle->leftTurn(60)
+		myGosperR(step,iteration-1)
+		turtle->leftTurn(60)
+		myGosperL(step,iteration-1)
+	}else {
+		turtle->forward(step)
+	}
+
+}
+function myStepLengh(step,iteration) {
+	while(iteration > 0) {
+		var step := step / 2
+		var iteration := iteration - 1
+	}
+	return step
+}
+function myGoToStart(step,iteration) {
+	var iteration := iteration * iteration
+	var iteration := iteration / 6
+	var step := step * iteration
+	return step
+}

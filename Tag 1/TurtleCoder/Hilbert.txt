@@ -1,0 +1,63 @@
+function main() {
+	turtle->setSpeed(10000)
+	var step := 1000
+	var iteration := 4
+	var step := myStepLengh(step,iteration)
+	for(var i < 2) {
+		turtle->penUp()
+		turtle->leftTurn(90)
+		turtle->forward(myGoToStart(step,iteration))
+		turtle->penDown()
+	}
+	turtle->leftTurn(90)
+	myHilbertX(step,iteration)
+}
+function myHilbertX(step,iteration) {
+	if(iteration > 0) {
+		turtle->leftTurn(90)
+		myHilbertY(step,iteration-1)
+		turtle->forward(step)
+		turtle->rightTurn(90)
+		myHilbertX(step,iteration-1)
+		turtle->forward(step)
+		myHilbertX(step,iteration-1)
+		turtle->rightTurn(90)
+		turtle->forward(step)
+		myHilbertY(step,iteration-1)
+		turtle->leftTurn(90)
+	}else {
+		return 0
+	}
+
+}
+function myHilbertY(step,iteration) {
+	if(iteration > 0) {
+		turtle->rightTurn(90)
+		myHilbertX(step,iteration-1)
+		turtle->forward(step)
+		turtle->leftTurn(90)
+		myHilbertY(step,iteration-1)
+		turtle->forward(step)
+		myHilbertY(step,iteration-1)
+		turtle->leftTurn(90)
+		turtle->forward(step)
+		myHilbertX(step,iteration-1)
+		turtle->rightTurn(90)
+	}else {
+		return 0
+	}
+
+}
+function myStepLengh(step,iteration) {
+	while(iteration > 0) {
+		var step := step / 2
+		var iteration := iteration - 1
+	}
+	return step
+}
+function myGoToStart(step,iteration) {
+	var iteration := iteration * iteration * iteration
+	var iteration := iteration / 4
+	var step := step * iteration
+	return step
+}

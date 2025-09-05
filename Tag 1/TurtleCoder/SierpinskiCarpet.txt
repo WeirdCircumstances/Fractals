@@ -1,0 +1,43 @@
+function main() {
+	turtle->setSpeed(10000)
+	var step := 1000
+	var iteration := 4
+	turtle->penUp()
+	turtle->back(500)
+	turtle->penDown()
+	mySierpinski(step,iteration)
+}
+function mySierpinski(step,iteration) {
+	if(iteration > 0) {
+		mySierpinski(step/3,iteration-1)
+		turtle->rightTurn(90)
+		mySierpinski(step/3,iteration-1)
+		turtle->leftTurn(90)
+		mySierpinski(step/3,iteration-1)
+		turtle->leftTurn(90)
+		mySierpinski(step/3,iteration-1)
+		mySierpinski(step/3,iteration-1)
+		turtle->leftTurn(90)
+		mySierpinski(step/3,iteration-1)
+		turtle->leftTurn(90)
+		mySierpinski(step/3,iteration-1)
+		turtle->leftTurn(90)
+		mySierpinskiF(step/3,iteration-1)
+		mySierpinski(step/3,iteration-1)
+	}else {
+		turtle->forward(step)
+	}
+
+}
+function mySierpinskiF(step,iteration) {
+	if(iteration > 0) {
+		turtle->penUp()
+		mySierpinskiF(step/3,iteration-1)
+		mySierpinskiF(step/3,iteration-1)
+		mySierpinskiF(step/3,iteration-1)
+		turtle->penDown()
+	}else {
+		turtle->forward(step)
+	}
+
+}

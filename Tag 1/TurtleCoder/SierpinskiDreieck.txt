@@ -1,0 +1,70 @@
+function main() {
+	turtle->setSpeed(10000)
+	var step := 100
+	var iteration := 4
+	var step := myStepLengh(step,iteration)
+	turtle->penUp()
+	for(var i < 2) {
+		turtle->leftTurn(90)
+		turtle->back(myGoToStart(step,iteration))
+	}
+	turtle->penDown()
+	turtle->rightTurn(30)
+	mySierpinski(step,iteration)
+	mySierpinskiX(step,iteration)
+	mySierpinski(step,iteration)
+	turtle->leftTurn(60)
+	turtle->leftTurn(60)
+	mySierpinski(step,iteration)
+	mySierpinski(step,iteration)
+	turtle->leftTurn(60)
+	turtle->leftTurn(60)
+	mySierpinski(step,iteration)
+	mySierpinski(step,iteration)
+}
+function mySierpinski(step,iteration) {
+	if(iteration > 0) {
+		mySierpinski(step,iteration-1)
+		mySierpinski(step,iteration-1)
+	}else {
+		turtle->forward(step)
+	}
+
+}
+function mySierpinskiX(step,iteration) {
+	if(iteration > 0) {
+		turtle->leftTurn(60)
+		turtle->leftTurn(60)
+		mySierpinski(step,iteration-1)
+		mySierpinskiX(step,iteration-1)
+		mySierpinski(step,iteration-1)
+		turtle->rightTurn(60)
+		turtle->rightTurn(60)
+		mySierpinski(step,iteration-1)
+		mySierpinskiX(step,iteration-1)
+		mySierpinski(step,iteration-1)
+		turtle->rightTurn(60)
+		turtle->rightTurn(60)
+		mySierpinski(step,iteration-1)
+		mySierpinskiX(step,iteration-1)
+		mySierpinski(step,iteration-1)
+		turtle->leftTurn(60)
+		turtle->leftTurn(60)
+	}else {
+		return 0
+	}
+
+}
+function myStepLengh(step,iteration) {
+	while(iteration > 0) {
+		var step := step / 2
+		var iteration := iteration - 1
+	}
+	return step
+}
+function myGoToStart(step,iteration) {
+	var iteration := iteration * iteration
+	var iteration := iteration / 2
+	var step := step * iteration
+	return step
+}

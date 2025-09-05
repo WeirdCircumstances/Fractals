@@ -1,0 +1,20 @@
+function main() {
+	turtle->setSpeed(100000)
+	var step := 500
+	var iteration := 12
+	turtle->rightTurn(90)
+	myLevy(step,iteration)
+}
+function myLevy(step,iteration) {
+	if(iteration > 0) {
+		turtle->rightTurn(45)
+		myLevy(step*(1/1.45),iteration-1)
+		turtle->leftTurn(45)
+		turtle->leftTurn(45)
+		myLevy(step*(1/1.45),iteration-1)
+		turtle->rightTurn(45)
+	}else {
+		turtle->forward(step)
+	}
+
+}

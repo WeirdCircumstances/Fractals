@@ -1,0 +1,60 @@
+function main() {
+	turtle->setSpeed(10000)
+	var step := 100
+	var iteration := 4
+	var step := myStepLengh(step,iteration)
+	turtle->penUp()
+	for(var i < 2) {
+	    turtle->leftTurn(90)
+	    turtle->back(myGoToStart(step,iteration))
+			}
+	
+	turtle->penDown()
+	myPentaPlexity(step,iteration)
+	turtle->rightTurn(36)
+	turtle->rightTurn(36)
+	myPentaPlexity(step,iteration)
+	turtle->rightTurn(36)
+	turtle->rightTurn(36)
+	myPentaPlexity(step,iteration)
+	turtle->rightTurn(36)
+	turtle->rightTurn(36)
+	myPentaPlexity(step,iteration)
+	turtle->rightTurn(36)
+	turtle->rightTurn(36)
+	myPentaPlexity(step,iteration)
+}
+function myPentaPlexity(step,iteration) {
+	if(iteration > 0) {
+		myPentaPlexity(step,iteration-1)
+		turtle->rightTurn(36)
+		turtle->rightTurn(36)
+		myPentaPlexity(step,iteration-1)
+		turtle->rightTurn(36)
+		turtle->rightTurn(36)
+		myPentaPlexity(step,iteration-1)
+		turtle->rightTurn(180)
+		myPentaPlexity(step,iteration-1)
+		turtle->leftTurn(36)
+		myPentaPlexity(step,iteration-1)
+		turtle->rightTurn(36)
+		turtle->rightTurn(36)
+		myPentaPlexity(step,iteration-1)
+	}else {
+		turtle->forward(step)
+	}
+
+}
+function myStepLengh(step,iteration) {
+	while(iteration > 0) {
+		var step := step / 2
+		var iteration := iteration - 1
+	}
+	return step
+}
+function myGoToStart(step,iteration) {
+	var iteration := iteration * iteration
+	var iteration := iteration / 2
+	var step := step * iteration
+	return step
+}

@@ -1,0 +1,36 @@
+function main() {
+	turtle->setSpeed(10000)
+	var step := 10
+	var iteration := 12
+	turtle->penUp()
+	turtle->rightTurn(90)
+	turtle->back(200)
+	turtle->penDown()
+	myDracheR(step,iteration)
+}
+function myDracheR(step,iteration) {
+	if(iteration > 0) {
+		turtle->rightTurn(45)
+		myDracheR(step,iteration-1)
+		turtle->leftTurn(45)
+		turtle->leftTurn(45)
+		myDracheL(step,iteration-1)
+		turtle->rightTurn(45)
+	}else {
+		turtle->forward(step)
+	}
+
+}
+function myDracheL(step,iteration) {
+	if(iteration > 0) {
+		turtle->leftTurn(45)
+		myDracheR(step,iteration-1)
+		turtle->rightTurn(45)
+		turtle->rightTurn(45)
+		myDracheL(step,iteration-1)
+		turtle->leftTurn(45)
+	}else {
+		turtle->forward(step)
+	}
+
+}

@@ -1,0 +1,40 @@
+function main() {
+	turtle->setSpeed(10000)
+	var step := 10
+	var iteration := 7
+	# var step := myStepLengh(step,iteration)
+	turtle->penUp()
+	turtle->rightTurn(90)
+	turtle->back(200)
+	# turtle->back(myGoToStart(step,iteration))
+	turtle->penDown()
+	myPfeilR(step,iteration)
+}
+function myPfeilR(step,iteration) {
+	if(iteration > 0) {
+		turtle->leftTurn(60)
+		myPfeilL(step,iteration-1)
+		turtle->rightTurn(60)
+		myPfeilR(step,iteration-1)
+		turtle->rightTurn(60)
+		myPfeilL(step,iteration-1)
+		turtle->leftTurn(60)
+	}else {
+		turtle->forward(step)
+	}
+
+}
+function myPfeilL(step,iteration) {
+	if(iteration > 0) {
+		turtle->rightTurn(60)
+		myPfeilR(step,iteration-1)
+		turtle->leftTurn(60)
+		myPfeilL(step,iteration-1)
+		turtle->leftTurn(60)
+		myPfeilR(step,iteration-1)
+		turtle->rightTurn(60)
+	}else {
+		turtle->forward(step)
+	}
+
+}

@@ -1,0 +1,49 @@
+function main() {
+	turtle->setSpeed(10000)
+	var step := 500
+	var iteration := 3
+	var step := myStepLengh(step,iteration)
+	turtle->penUp()
+	turtle->rightTurn(90)
+	turtle->back(200)
+	turtle->back(myGoToStart(step,iteration))
+	turtle->penDown()
+	myPeano(step,iteration)
+}
+function myPeano(step,iteration) {
+	if(iteration > 0) {
+		myPeano(step,iteration-1)
+		turtle->leftTurn(90)
+		myPeano(step,iteration-1)
+		turtle->rightTurn(90)
+		myPeano(step,iteration-1)
+		turtle->rightTurn(90)
+		myPeano(step,iteration-1)
+		turtle->rightTurn(90)
+		myPeano(step,iteration-1)
+		turtle->leftTurn(90)
+		myPeano(step,iteration-1)
+		turtle->leftTurn(90)
+		myPeano(step,iteration-1)
+		turtle->leftTurn(90)
+		myPeano(step,iteration-1)
+		turtle->rightTurn(90)
+		myPeano(step,iteration-1)
+	}else {
+		turtle->forward(step)
+	}
+
+}
+function myStepLengh(step,iteration) {
+	while(iteration > 0) {
+		var step := step / 2
+		var iteration := iteration - 1
+	}
+	return step
+}
+function myGoToStart(step,iteration) {
+	var iteration := iteration * iteration * iteration
+	var iteration := iteration / 2
+	var step := step * iteration
+	return step
+}

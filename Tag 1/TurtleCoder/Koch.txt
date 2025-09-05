@@ -1,0 +1,35 @@
+function main() {
+	turtle->setSpeed(100000)
+	var step := 500
+	var iteration := 4
+	myCenter(step)
+	for(var i < 3) {
+		myKoch(step,iteration)
+		turtle->rightTurn(120)
+	}
+}
+function myKoch(step,iteration) {
+	if(iteration > 0) {
+		myKoch(step/3,iteration-1)
+		turtle->leftTurn(60)
+		myKoch(step/3,iteration-1)
+		turtle->rightTurn(60)
+		turtle->rightTurn(60)
+		myKoch(step/3,iteration-1)
+		turtle->leftTurn(60)
+		myKoch(step/3,iteration-1)
+	}else {
+		turtle->forward(step)
+	}
+
+}
+function myCenter(step) {
+	turtle->penUp()
+	var myUp := step / 4
+	turtle->forward(myUp)
+	turtle->leftTurn(90)
+	var myRight := step / 2
+	turtle->forward(myRight)
+	turtle->rightTurn(180)
+	turtle->penDown()
+}
